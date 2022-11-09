@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - CurrencyFactory
+  - MenuEnemy
+  - Bullet
+  - Factory
+  - Target
+  - Brawler
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Enemy
+  - Jalanan
+  - Brawler
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: BackGround Map
+    uniqueID: 2979740315
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Tiles
+    uniqueID: 1134680417
+    locked: 0
+  - name: Enemies
+    uniqueID: 1898812227
+    locked: 0
+  - name: Bulets
+    uniqueID: 2951732773
+    locked: 0
+  - name: Factories
+    uniqueID: 2501600945
+    locked: 0
+  - name: DragAndDrops
+    uniqueID: 1071565579
+    locked: 0
