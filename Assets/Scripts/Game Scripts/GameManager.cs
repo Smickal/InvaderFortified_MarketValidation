@@ -75,7 +75,18 @@ public class GameManager : MonoBehaviour
     
     public void PickTower(Shop towerBtn)
     {
+        if(this.ClickedBtn != null)
+        {
+            if(this.ClickedBtn == towerBtn)
+            {
+                CancelCurrentTower();
+                return;
+            }
+        }
+        
+
         this.ClickedBtn = towerBtn;
+
         if(Currency >= towerBtn.GetTowerCost())
         {
             //Debug.Log(towerBtn.tag);
@@ -90,6 +101,7 @@ public class GameManager : MonoBehaviour
 
                 RefreshUpgradePanel();
             }
+
         }
         else
         {
@@ -121,11 +133,16 @@ public class GameManager : MonoBehaviour
 
     public void CancelCurrentTower()
     {
-        ClickedBtn = null;
-        dragAndDrop.Deactivate();
-        upgradePanel.DisableUpgradePanel();
-        Debug.Log("Cancelled");
+        if(ClickedBtn != null)
+        {
+            ClickedBtn = null;
+            dragAndDrop.Deactivate();
+            upgradePanel.DisableUpgradePanel();
+            Debug.Log("Cancelled");
+        }
     }
+
+
 
     public void AddCurrency(float addCurrency)
     {

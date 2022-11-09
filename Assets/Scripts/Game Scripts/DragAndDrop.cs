@@ -5,7 +5,6 @@ using UnityEngine;
 public class DragAndDrop : MonoBehaviour
 {
 
-    CancelButton cancelButton;
     public Transform rangeViewer;
 
     float turretRange;
@@ -19,7 +18,6 @@ public class DragAndDrop : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
         }
-        cancelButton = FindObjectOfType<CancelButton>();
     }
 
     private SpriteRenderer spriteRenderer;
@@ -47,14 +45,12 @@ public class DragAndDrop : MonoBehaviour
     public void Activate(Sprite sprite)
     {
         this.spriteRenderer.sprite = sprite;
-        cancelButton.ActivateCancelButton();
         EnableRangeViewer();
     }
 
     public void Deactivate()
     {
         this.spriteRenderer.sprite = null;
-        cancelButton.DeactivateCancelButton();
         DisableRangeViewer();
     }
 

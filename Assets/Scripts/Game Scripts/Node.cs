@@ -326,7 +326,7 @@ public class Node : MonoBehaviour
             float selectedFactoryCost = GetComponentInChildren<SpawnMinions>().factoryCost;
             selectedFactoryCost /= 4;
             gameManager.Currency += selectedFactoryCost;
-            Destroy(GetComponent<Transform>().GetChild(0).gameObject);
+            Destroy(GetComponentInChildren<Tower>().gameObject);
             turret = null;
             upgradePanel.DisableUpgradePanel();
         }
