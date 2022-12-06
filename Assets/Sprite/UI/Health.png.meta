@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0baf6b06c5d63854f90c1dcb1fbd8dab
+guid: fd3a8f8ebb5ed684a931e360e10923f5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: trashcan_0
+      name: Health_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 6
-        width: 24
-        height: 35
+        x: 110
+        y: 207
+        width: 403
+        height: 403
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,8 +118,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 055ef1c12426c2040a47c6fd907d0d0c
-      internalID: 903705355
+      spriteID: 3de6a1ac75743824490c82b8c47bbc48
+      internalID: 1494259368
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      trashcan_0: 903705355
+      Health_0: 1494259368
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
