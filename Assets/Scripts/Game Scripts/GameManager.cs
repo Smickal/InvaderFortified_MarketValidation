@@ -100,6 +100,8 @@ public class GameManager : MonoBehaviour
                 dragAndDrop.Activate(towerBtn.GetSpriteOfTower());
 
                 RefreshUpgradePanel();
+
+                upgradePanel.EnableUpgradePanel();
             }
 
         }
@@ -129,6 +131,7 @@ public class GameManager : MonoBehaviour
         ClickedBtn = null;
         dragAndDrop.Deactivate();
 
+        upgradePanel.DisableUpgradePanel();
     }
 
     public void CancelCurrentTower()

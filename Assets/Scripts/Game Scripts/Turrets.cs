@@ -13,6 +13,8 @@ public class Turrets : MonoBehaviour
     [Header("Turret Attributes")]
     public bool isWalkable = false;
     public bool isRotate = false;
+    public bool isRocketLauncher = false;
+    public bool isBrawler = false;
     public string turretName;
     public float turretHP = 10f;
     public float turretRange = 15f;
@@ -35,8 +37,10 @@ public class Turrets : MonoBehaviour
     [SerializeField] BoxCollider2D col;
     [SerializeField] LayerMask enemyLayer;
 
+    SpriteRenderer[] sprite;
+
     NavMeshAgent agent;
-    SpriteRenderer sprite;
+    Animator anim;
     Vector3 gunBarrelRightPos, gunBarrelLeftPos;
     private void Awake()
     {
@@ -55,12 +59,20 @@ public class Turrets : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0f, 0f, 90f);
         }
 
-        sprite = GetComponentInChildren<SpriteRenderer>();
+        sprite = GetComponentsInChildren<SpriteRenderer>();
+        anim = GetComponent<Animator>();
 
         Vector3 temp = gunBarrel.localPosition;
 
         gunBarrelRightPos = temp;
-        gunBarrelLeftPos = new Vector3(-temp.x, temp.y, temp.z);
+        if (!isBrawler)
+        {
+            gunBarrelLeftPos = new Vector3(temp.x, -temp.y, temp.z);
+        }
+        else
+        {
+            gunBarrelLeftPos = new Vector3(-temp.x, temp.y, temp.z);
+        }
     }
 
     void Start()
@@ -151,7 +163,17 @@ public class Turrets : MonoBehaviour
 
     void ProcessNormalTurret()
     {
-        if (target == null) return;
+        if (target == null)
+        {
+            if(!isRocketLauncher || !isBrawler)
+                anim.SetBool("IsAttacking", false);
+            return;
+        }
+        else
+        {
+            if (!isRocketLauncher || !isBrawler)
+                anim.SetBool("IsAttacking", true);
+        }
         //RotateTowardsTarget();
         
         if(!isRotate)
@@ -225,13 +247,17 @@ public class Turrets : MonoBehaviour
         
         if (distance.x < 0f)
         {
-            sprite.flipY = true;
-            gunBarrel.localPosition = gunBarrelLeftPos;
+            if(!isBrawler)
+                this.transform.localScale = new Vector3(transform.localScale.x, -1, transform.localScale.z);
+            else
+                this.transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
         }
         else
         {
-            sprite.flipY = false;
-            gunBarrel.localPosition = gunBarrelRightPos;
+            if(!isBrawler)
+                this.transform.localScale = new Vector3(transform.localScale.x, 1, transform.localScale.z);
+            else
+                this.transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
         }
         
     }

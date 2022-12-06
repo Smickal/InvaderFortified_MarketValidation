@@ -1,5 +1,67 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1377282638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1377282639}
+  m_Layer: 0
+  m_Name: TopSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1377282639
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377282638}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4130726915048430249}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1668540279
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1668540280}
+  m_Layer: 0
+  m_Name: BotSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1668540280
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668540279}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4130726915048430249}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &43489460809171068
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,9 +156,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4130726913729309823}
   - component: {fileID: 4130726913729309820}
-  - component: {fileID: 5480092173681807180}
+  - component: {fileID: 8688398767001193922}
   m_Layer: 0
-  m_Name: Tower_Archer
+  m_Name: Tower_Boom
   m_TagString: Factory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,7 +222,7 @@ SpriteRenderer:
   m_SortingLayerID: -1793366351
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d60fbece02ca08c4cac89fbae69b2b6d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7e14323d4a4458d49bc2f4cc5981657e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -171,7 +233,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5480092173681807180
+--- !u!114 &8688398767001193922
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -195,6 +257,7 @@ GameObject:
   - component: {fileID: 4130726915048430248}
   - component: {fileID: 6158244902411895344}
   - component: {fileID: 2024830820427579421}
+  - component: {fileID: 1204556891}
   m_Layer: 0
   m_Name: Spawn Minion
   m_TagString: Untagged
@@ -214,7 +277,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4130726915252217939}
+  - {fileID: 1377282639}
+  - {fileID: 1668540280}
   m_Father: {fileID: 4130726913729309823}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -230,19 +294,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0df5102c01ffc72428e22f34f55ac88d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turret: {fileID: 6043898954128738185, guid: a7331a53c7d63ac45adabc5703009ce6, type: 3}
+  turret: {fileID: 6043898954128738185, guid: 3bbc6f76f574ec04dad98e2974631385, type: 3}
   previewRangeOfFactory: {fileID: 2024830820427579421}
-  delayBetweenSpawns: 0
+  delayBetweenSpawns: 2
   factoryHP: 100
   maxFactoryHP: 100
-  factoryCost: 100
-  maxMinion: 1
-  turretName: Archer
+  factoryCost: 500
+  maxMinion: 2
+  turretName: BOOM
   turretHP: 10
-  turretRange: 5
+  turretRange: 8
   turretTurnSpeed: 10
-  fireRate: 1
-  turretDamage: 10
+  fireRate: 0.5
+  turretDamage: 50
   bulletSpeed: 5
   hpSlider: {fileID: 0}
 --- !u!114 &6158244902411895344
@@ -257,15 +321,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e70a2ecc53e4f9247958accd9a2010e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageUpgrade: 5
-  rangeUpgrade: 2
+  damageUpgrade: 1
+  rangeUpgrade: 1
   maxHPFactoryUpgrade: 20
-  damageUpgradePrice: 10
+  damageUpgradePrice: 20
   rangeUpgradePrice: 10
   recoverFactoryPrice: 10
   maxFactoryUpgradePrice: 10
   damageCounter: 3
-  rangeCounter: 3
+  rangeCounter: 2
   maxHPCounter: 3
   spawnMinions: {fileID: 4130726915048430248}
 --- !u!114 &2024830820427579421
@@ -282,34 +346,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rangeViewer: {fileID: 86293367793544495}
   currentRange: 0
---- !u!1 &4130726915252217936
-GameObject:
+--- !u!114 &1204556891
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4130726915252217939}
-  m_Layer: 0
-  m_Name: Place 1
-  m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4130726915252217939
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4130726915252217936}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.049, y: 0.862, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4130726915048430249}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 4130726915048430230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b098c1fa21acce4897034e2893bda5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxClamp: 180
+  minClamp: 0

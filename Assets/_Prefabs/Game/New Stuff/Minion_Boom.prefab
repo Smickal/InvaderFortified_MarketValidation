@@ -9,19 +9,47 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4735475632642398668, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4735475632642398668, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4735475632642398668, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735475632642398669, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1c52058c9ed5ea645a8a569cd233f116, type: 3}
+    - target: {fileID: 4735475634187490768, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735475634187490768, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.18
       objectReference: {fileID: 0}
     - target: {fileID: 4735475634299735427, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
       propertyPath: m_Name
-      value: Minion_Archer
+      value: Minion_Boom
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735475634299735428, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
+      propertyPath: isRotate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735475634299735428, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
+      propertyPath: turretName
+      value: Boom
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735475634299735428, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 6203266413992622537, guid: 6232224ca86e89b40b85599100d4b070, type: 3}
+    - target: {fileID: 4735475634299735428, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
+      propertyPath: isRocketLauncher
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4735475634299735430, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
       propertyPath: m_RootOrder
@@ -29,11 +57,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4735475634299735430, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.786809
+      value: -7.9661064
       objectReference: {fileID: 0}
     - target: {fileID: 4735475634299735430, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.88929933
+      value: -4.4896264
       objectReference: {fileID: 0}
     - target: {fileID: 4735475634299735430, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
       propertyPath: m_LocalPosition.z
@@ -69,3 +97,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
+--- !u!1 &6043898954128738185 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4735475634299735427, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
+  m_PrefabInstance: {fileID: 1321797610180626954}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2988177152554235874
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6043898954128738185}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

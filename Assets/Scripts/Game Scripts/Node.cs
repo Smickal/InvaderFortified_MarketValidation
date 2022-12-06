@@ -72,6 +72,13 @@ public class Node : MonoBehaviour
             //Check CurrentUpgradeCounter
             CheckCurrentUpgradeCounter();
         }
+        
+        if(!isFactoryPlaced)
+        {
+            Debug.Log("disabled Panel");
+            upgradePanel.DisableUpgradePanel();
+            parentNodes.DisableAllPreviews();
+        }
 
     }
 
@@ -157,7 +164,8 @@ public class Node : MonoBehaviour
 
                 turret = newTower;
                 RefreshUpdatePanel();
-                upgradePanel.EnableUpgradePanel();
+                upgradePanel.DisableUpgradePanel();
+                //upgradePanel.EnableUpgradePanel();
                 if (turret.tag != "CurrencyFactory")
                 {
                     spawnMinions.GetComponent<PreviewRangeOfFactory>().EnableRangePreview();
@@ -165,6 +173,7 @@ public class Node : MonoBehaviour
                 }
 
                 gameManager.BuyTower();
+                
             }
 
             if (isThisNodeSpecial && gameManager.ClickedBtn.GetTowerPrefab().tag == "CurrencyFactory")
@@ -175,6 +184,7 @@ public class Node : MonoBehaviour
                 turret = newTower;
                 gameManager.BuyTower();
                 upgradePanel.DisableUpgradePanel();
+                
             }
         }
 
@@ -226,6 +236,8 @@ public class Node : MonoBehaviour
             spawnMinions.GetComponent<PreviewRangeOfFactory>().SetRangeViewer(spawnMinions.turretRange);
             spawnMinions.GetComponent<PreviewRangeOfFactory>().EnableRangePreview();
         }
+
+        upgradePanel.EnableUpgradePanel();
     }
 
     void UpgradeDamage()

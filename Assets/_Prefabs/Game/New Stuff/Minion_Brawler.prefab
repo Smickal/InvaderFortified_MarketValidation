@@ -191,12 +191,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isWalkable: 1
-  turretName: Sniper Turret Factory
+  isRotate: 0
+  isRocketLauncher: 0
+  isBrawler: 1
+  turretName: Brawler
   turretHP: 10
   turretRange: 3.55
   meleeRange: 0.47
   turretTurnSpeed: 10
   fireRate: 0.5
+  minRotation: -180
+  maxRotation: 0
   turretDamage: 50
   bulletSpeed: 120
   enemyTag: Enemy

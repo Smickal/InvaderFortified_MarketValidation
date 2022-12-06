@@ -37,10 +37,13 @@ public class UpgradePanel : MonoBehaviour
 
     public bool isUpgradePanelActivated = false;
     allNodes allnode;
+    RetractableController retractableController;
 
     private void Awake()
     {
         allnode = FindObjectOfType<allNodes>();
+        retractableController = GetComponent<RetractableController>();
+
         damageTextDisabled.SetActive(false);
         rangeTextDisabled.SetActive(false);
         //maXHPTextDisabled.SetActive(false);
@@ -77,22 +80,28 @@ public class UpgradePanel : MonoBehaviour
 
     public void EnableUpgradePanel()
     {
-        gameObject.SetActive(true);
-        cancelButton.gameObject.SetActive(true);
+        if (!isUpgradePanelActivated)
+            retractableController.TriggerRetracable();
+
         isUpgradePanelActivated = true;
+        cancelButton.gameObject.SetActive(true);
         upgradeGroups.SetActive(true);
     }
 
     public void DisableUpgradePanel()
     {
-        gameObject.SetActive(false);
+        if (isUpgradePanelActivated)
+            retractableController.TriggerRetracable();
+
         isUpgradePanelActivated = false;
         allnode.DisableAllNodes();
     }
 
     public void EnableUpgradePanelWhenButtoneClicked()
     {
-        gameObject.SetActive(true);
+        if (!isUpgradePanelActivated)
+            retractableController.TriggerRetracable();
+
         cancelButton.gameObject.SetActive(false);
         isUpgradePanelActivated = true;
         upgradeGroups.SetActive(false);
