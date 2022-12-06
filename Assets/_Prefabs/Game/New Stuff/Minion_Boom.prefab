@@ -22,14 +22,18 @@ PrefabInstance:
     - target: {fileID: 4735475632642398669, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 1c52058c9ed5ea645a8a569cd233f116, type: 3}
+      objectReference: {fileID: 21300000, guid: 84cdf1e4556a5854f81bd77a890cf021, type: 3}
+    - target: {fileID: 4735475632642398669, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
+      propertyPath: m_SortingOrder
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 4735475634187490768, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.37
+      value: 0.24
       objectReference: {fileID: 0}
     - target: {fileID: 4735475634187490768, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.18
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4735475634299735427, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
       propertyPath: m_Name
@@ -41,7 +45,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4735475634299735428, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
       propertyPath: turretName
-      value: Boom
+      value: Canon
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735475634299735428, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
+      propertyPath: bulletSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735475634299735428, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
+      propertyPath: maxRotation
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735475634299735428, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
+      propertyPath: minRotation
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4735475634299735428, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
       propertyPath: bulletPrefab
@@ -51,17 +67,21 @@ PrefabInstance:
       propertyPath: isRocketLauncher
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4735475634299735428, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 4735475634299735430, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4735475634299735430, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.9661064
+      value: -5.127676
       objectReference: {fileID: 0}
     - target: {fileID: 4735475634299735430, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.4896264
+      value: -2.3789144
       objectReference: {fileID: 0}
     - target: {fileID: 4735475634299735430, guid: 43c5eefb7bc307f42bcfa53fbd3d5dde, type: 3}
       propertyPath: m_LocalPosition.z

@@ -220,9 +220,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1793366351
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7e14323d4a4458d49bc2f4cc5981657e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aa1de5f4c6490a8408364235b8ea2d38, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -333,7 +333,7 @@ MonoBehaviour:
   maxFactoryHP: 100
   factoryCost: 500
   maxMinion: 2
-  turretName: Barracks
+  turretName: Brawler
   turretHP: 10
   turretRange: 8
   turretTurnSpeed: 10

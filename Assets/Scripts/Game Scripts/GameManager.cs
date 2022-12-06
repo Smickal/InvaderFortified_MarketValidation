@@ -7,9 +7,13 @@ using System;
 public class GameManager : MonoBehaviour
 {
 
-    private float currency = 0;
+    public float currency = 2000;
+    public int maxWave = 5;
+
+    [SerializeField] string rateText;
     [Header("Localization")]
     [SerializeField]private TextMeshProUGUI currencyText;
+    [SerializeField] private TextMeshProUGUI rateTMP;
     [SerializeField]private TextMeshProUGUI playerHpText;
     [SerializeField]private GameObject gameOverButton;
 
@@ -33,9 +37,10 @@ public class GameManager : MonoBehaviour
 
     private void Start() 
     {
-        Currency = 2000;
+        Currency = this.currency;
 
         upgradePanel.DisableUpgradePanel();
+        rateTMP.text = rateText + " $/second";
     }
     private void Awake() 
     {
@@ -61,7 +66,7 @@ public class GameManager : MonoBehaviour
 
     private void CheckForGameOverScreen()
     {
-        if(extraMainTowerAttributes.MainTowerHp <= 0)
+        if(extraMainTowerAttributes.GetMainTowerHP() <= 0)
         {
             gameOverButton.SetActive(true);
         }
@@ -117,8 +122,8 @@ public class GameManager : MonoBehaviour
         SpawnMinions factorySelected = ClickedBtn.GetComponent<Shop>().GetTowerPrefab().GetComponentInChildren<SpawnMinions>();
         UpgradeAttributes upgradeAttributes = factorySelected.GetComponent<UpgradeAttributes>();
 
-        upgradePanel.SetTowerAttributes(factorySelected.turretName, factorySelected.factoryHP, factorySelected.maxFactoryHP,factorySelected.turretDamage, factorySelected.turretRange,
-            factorySelected.fireRate, factorySelected.delayBetweenSpawns);
+        upgradePanel.SetTowerAttributes(factorySelected.turretName, factorySelected.turretDamage, factorySelected.turretRange,
+            factorySelected.fireRate);
         upgradePanel.SetUpgradeAttributes(upgradeAttributes.damageUpgrade, upgradeAttributes.rangeUpgrade);
 
         upgradePanel.EnableUpgradePanelWhenButtoneClicked();
@@ -154,7 +159,7 @@ public class GameManager : MonoBehaviour
 
     private void DisplayMainTowerHP()
     {
-        playerHpText.text =  "HP: " + extraMainTowerAttributes.MainTowerHp.ToString();
+        playerHpText.text =  extraMainTowerAttributes.GetMainTowerHP().ToString() + " HP" ;
     }
 
     

@@ -7,14 +7,7 @@ public class ExtraMainTowerAttributes : MonoBehaviour
     [SerializeField]float mainTowerHp;
 
     public float startingHP;
-    public float MainTowerHp
-    {
-        get{return mainTowerHp;}
-        set
-        {
-            this.mainTowerHp -= value;
-        }
-    }
+
 
     private void Start()
     {
@@ -33,5 +26,15 @@ public class ExtraMainTowerAttributes : MonoBehaviour
             Debug.Log("GameOver!!");
             mainTowerHp = 0;
         }
+    }
+
+    public void ReduceMainTowerHp(float value)
+    {
+        mainTowerHp -= value;
+    }
+
+    public float GetMainTowerHP()
+    {
+        return mainTowerHp;
     }
 }

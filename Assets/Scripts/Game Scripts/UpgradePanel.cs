@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class UpgradePanel : MonoBehaviour
 {
     // Start is called before the first frame update
     [Header("Description Panel")]
-    [SerializeField]private Text towerName;
-    [SerializeField] private Text factoryHP;
-    [SerializeField] private Text minionDamage;
-    [SerializeField] private Text minionFireRate;
+    [SerializeField]private TextMeshProUGUI towerName;
+    //[SerializeField] private TextMeshProUGUI factoryHP;
+    [SerializeField] private TextMeshProUGUI minionDamage;
+    [SerializeField] private TextMeshProUGUI minionFireRate;
     //[SerializeField] private Text recoveryRate;
-    [SerializeField] private Text rangeText;
+    [SerializeField] private TextMeshProUGUI rangeText;
     [SerializeField] GameObject upgradeGroups;
 
     [Header("Upgrade Buttons")]
@@ -20,16 +20,16 @@ public class UpgradePanel : MonoBehaviour
     [SerializeField] Button rangeIncreaseButton;
     //[SerializeField] Button recoverHealthButton;
     //[SerializeField] Button increaseMaxFactoryUpgradeButton;
-    [SerializeField] Button cancelButton;
+    //[SerializeField] Button cancelButton;
 
     [Header("Upgrade Text_Attack")]
     [SerializeField] GameObject damageText;
-    [SerializeField] Text attackNumText;
+    [SerializeField] TextMeshProUGUI attackNumText;
     [SerializeField] GameObject damageTextDisabled;
 
     [Header("Upgrade Text_Range")]
     [SerializeField] GameObject rangeTexT;
-    [SerializeField] Text rangeNumText;
+    [SerializeField] TextMeshProUGUI rangeNumText;
     [SerializeField] GameObject rangeTextDisabled;
 
     //[SerializeField] GameObject maxHPText;
@@ -48,21 +48,19 @@ public class UpgradePanel : MonoBehaviour
         rangeTextDisabled.SetActive(false);
         //maXHPTextDisabled.SetActive(false);
     }
-    public void SetTowerAttributes(string towerName, float factoryHP, float maxFactoryHP,
-        float minionDamage, float turretRange,float minionFireRate,
-        float minionRecoveryRate)
+    public void SetTowerAttributes(string towerName,
+        float minionDamage, float turretRange,float minionFireRate)
     {
         this.towerName.text = towerName;
-        this.factoryHP.text = "HP: " + factoryHP.ToString() + "/ " + maxFactoryHP.ToString();
-        this.minionDamage.text = "Damage: " + minionDamage.ToString();
-        this.minionFireRate.text = "Fire rate: " + minionFireRate.ToString();
-        rangeText.text = "Range: " + turretRange.ToString();
+        this.minionDamage.text = minionDamage.ToString();
+        this.minionFireRate.text =  minionFireRate.ToString();
+        rangeText.text = turretRange.ToString();
         //recoveryRate.text = "Recovery rate: " + minionRecoveryRate.ToString() + " seconds";
     }
     
     public void SetUpgradeAttributes(float damageNum, float rangeNum)
     {
-        string tempAttstr = "Attack +" + damageNum;
+        string tempAttstr = "DMG +" + damageNum;
         string tempRangeStr = "Range +" + rangeNum;
 
         attackNumText.text = tempAttstr;
@@ -70,13 +68,7 @@ public class UpgradePanel : MonoBehaviour
     }
 
 
-    public void UpdateHP(float factoryHP, float maxFactoryHP)
-    {
-        if(isUpgradePanelActivated)
-        {
-            this.factoryHP.text = "HP: " + factoryHP.ToString() + "/ " + maxFactoryHP.ToString();
-        }
-    }
+    
 
     public void EnableUpgradePanel()
     {
@@ -84,8 +76,8 @@ public class UpgradePanel : MonoBehaviour
             retractableController.TriggerRetracable();
 
         isUpgradePanelActivated = true;
-        cancelButton.gameObject.SetActive(true);
-        upgradeGroups.SetActive(true);
+        //cancelButton.gameObject.SetActive(true);
+        //upgradeGroups.SetActive(true);
     }
 
     public void DisableUpgradePanel()
@@ -102,9 +94,9 @@ public class UpgradePanel : MonoBehaviour
         if (!isUpgradePanelActivated)
             retractableController.TriggerRetracable();
 
-        cancelButton.gameObject.SetActive(false);
         isUpgradePanelActivated = true;
-        upgradeGroups.SetActive(false);
+        //cancelButton.gameObject.SetActive(false);
+        //upgradeGroups.SetActive(false);
     }
 
    public void CheckDamageText(bool check)

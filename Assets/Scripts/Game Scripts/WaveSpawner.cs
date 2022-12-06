@@ -18,7 +18,8 @@ public class WaveSpawner : MonoBehaviour
     public TextMeshProUGUI enemiesLeftText;
     public GameObject waveSpawnerButton;
     public DynamicDifficulityAdjustment dda;
-
+    [SerializeField] GameObject winScreen;
+    GameManager gameManager;
 
     int waveNumber = 1;
     int startingEnemies;
@@ -44,10 +45,16 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
+
     private void Start()
     {
-        enemiesLeftText.text = "Enemies left: " + enemiesLeft.ToString();
-        currentWaveText.text = "WAVE: " + (waveNumber).ToString();
+        startingEnemies = enemiesLeft;
+        enemiesLeftText.text = (enemiesLeft  + getCurrentEnemiesInScreen).ToString() + " / " + startingEnemies.ToString();
+        currentWaveText.text = waveNumber.ToString() + " / " + gameManager.maxWave.ToString();
         startingEnemies = enemiesLeft;
         currentMaxEnemy = enemyPrefab.Length;
     }
@@ -61,17 +68,20 @@ public class WaveSpawner : MonoBehaviour
 
     private void WaveEnded()
     {
-        if (!isWaveStarting && (getCurrentEnemiesInScreen == 0 && enemiesLeft == 0))
+        if (!isWaveStarting && (getCurrentEnemiesInScreen + enemiesLeft == 0))
         {
             inGame = false;
             waveSpawnerButton.gameObject.SetActive(true);
-            enemiesLeftText.text = "Enemies left: " + enemiesLeft.ToString();
             if (!timeStamp)
             {
                 currentCheckedTime = stopwatch;
                 timeStamp = true;
             }
-            FindObjectOfType<CheckGameWin>().CheckForEndingWave(waveNumber);
+            
+            if(waveNumber > gameManager.maxWave)
+            {
+                winScreen.SetActive(true);
+            }
         }
     }
 
@@ -84,7 +94,7 @@ public class WaveSpawner : MonoBehaviour
             waveSpawnerButton.gameObject.SetActive(false);
             currentWaveText.text = "WAVE: " + (waveNumber).ToString();
             CalculateEnemiesRemainingInThisWave();
-            enemiesLeftText.text = "Enemies left: " + enemiesLeft.ToString();
+            currentWaveText.text = waveNumber.ToString() + " / " + gameManager.maxWave.ToString();
             stopwatch = 0;
             timeStamp = false;
             StartCoroutine(SpawnWave());
@@ -100,7 +110,7 @@ public class WaveSpawner : MonoBehaviour
          enemiesLeft = startingEnemies;
         else
         {
-            enemiesLeft = startingEnemies + dda.GetIncrementSpawnRate(currentCheckedTime,FindObjectOfType<ExtraMainTowerAttributes>().MainTowerHp);
+            enemiesLeft = startingEnemies + dda.GetIncrementSpawnRate(currentCheckedTime,FindObjectOfType<ExtraMainTowerAttributes>().GetMainTowerHP());
             startingEnemies = enemiesLeft;
         }
         
@@ -114,7 +124,6 @@ public class WaveSpawner : MonoBehaviour
             int randEnemy = GetEnemyPrefab();
             Instantiate(enemyPrefab[randEnemy],spawnLocation.position, spawnLocation.localRotation);
             enemiesLeft--;
-            enemiesLeftText.text = "Enemies left: " + enemiesLeft.ToString();
             getCurrentEnemiesInScreen++;
             float rand = Random.Range(0.2f, timeDelayBetweenEnemies);
             yield return new WaitForSeconds(rand);
@@ -143,4 +152,9 @@ public class WaveSpawner : MonoBehaviour
         return waveNumber;
     }
 
+    public void ReduceCurrentEnemy()
+    {
+        getCurrentEnemiesInScreen--;
+        enemiesLeftText.text = (enemiesLeft + getCurrentEnemiesInScreen).ToString() + " / " + startingEnemies.ToString();
+    }
 }

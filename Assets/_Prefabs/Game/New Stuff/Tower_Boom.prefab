@@ -24,43 +24,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1377282638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4130726915048430249}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1668540279
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1668540280}
-  m_Layer: 0
-  m_Name: BotSpawn
-  m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1668540280
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1668540279}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4130726915048430249}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &43489460809171068
 GameObject:
@@ -220,9 +189,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1793366351
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7e14323d4a4458d49bc2f4cc5981657e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1eacd3b12e865e84da58a89a687c5922, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -257,7 +226,6 @@ GameObject:
   - component: {fileID: 4130726915048430248}
   - component: {fileID: 6158244902411895344}
   - component: {fileID: 2024830820427579421}
-  - component: {fileID: 1204556891}
   m_Layer: 0
   m_Name: Spawn Minion
   m_TagString: Untagged
@@ -278,7 +246,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1377282639}
-  - {fileID: 1668540280}
   m_Father: {fileID: 4130726913729309823}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -300,8 +267,8 @@ MonoBehaviour:
   factoryHP: 100
   maxFactoryHP: 100
   factoryCost: 500
-  maxMinion: 2
-  turretName: BOOM
+  maxMinion: 1
+  turretName: Canon
   turretHP: 10
   turretRange: 8
   turretTurnSpeed: 10
@@ -346,17 +313,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rangeViewer: {fileID: 86293367793544495}
   currentRange: 0
---- !u!114 &1204556891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4130726915048430230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b098c1fa21acce4897034e2893bda5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxClamp: 180
-  minClamp: 0

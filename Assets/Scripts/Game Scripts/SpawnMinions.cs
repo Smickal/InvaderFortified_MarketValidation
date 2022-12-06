@@ -69,9 +69,7 @@ public class SpawnMinions : MonoBehaviour
     {
         GameObject newMinion =  Instantiate(turret, spawnTurretPoints[placeToSpawn].position, 
             Quaternion.identity, spawnTurretPoints[placeToSpawn].transform ) as GameObject;
-        TurretClamp tc = GetComponent<TurretClamp>();
-        if (tc)
-            tc.ClampTurret(newMinion.GetComponent<Turrets>());
+        
         secondCountdown = delayBetweenSpawns;
         currentTowerCount++;
 

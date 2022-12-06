@@ -22,8 +22,8 @@ public class Turrets : MonoBehaviour
     public float turretTurnSpeed = 10f;
     public float fireRate = 1f;
     private float fireCountDown = 0f;
-    [SerializeField] float minRotation = -180f;
-    [SerializeField] float maxRotation = 0f;
+    //[SerializeField] float minRotation = -180f;
+    //[SerializeField] float maxRotation = 0f;
 
 
     [Header("Minions")]
@@ -31,7 +31,7 @@ public class Turrets : MonoBehaviour
     public float bulletSpeed = 5f;
 
     [Header("Setups")]
-    public string enemyTag = ("Enemy");
+    public string enemyTag = "Enemy";
     public GameObject bulletPrefab;
     public Transform gunBarrel;
     [SerializeField] BoxCollider2D col;
@@ -85,10 +85,9 @@ public class Turrets : MonoBehaviour
     void UpdateTarget()
     {
         GameObject[] enemies;
-        if (SceneManager.GetActiveScene().buildIndex == 1)
-            enemies = GameObject.FindGameObjectsWithTag(enemyTag);
-        else
-            enemies = GameObject.FindGameObjectsWithTag("MenuEnemy");
+ 
+        enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+
         GameObject nearestEnemy = null;
         float shortestDistance = Mathf.Infinity;
 
@@ -108,16 +107,17 @@ public class Turrets : MonoBehaviour
 
             Vector2 dir = target.transform.position - transform.position;
             float rotation = MathF.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            if ( (rotation >= maxRotation || rotation < minRotation) && isRotate)
-            {
-                target = null;
-            }
+            //if ( (rotation >= maxRotation || rotation < minRotation) && isRotate)
+            //{
+            //    target = null;
+            //}
         }
         else
         {
             target = null;
         }
 
+        //Debug.Log(target);
     }
     void Update()
     {
@@ -174,9 +174,9 @@ public class Turrets : MonoBehaviour
             if (!isRocketLauncher || !isBrawler)
                 anim.SetBool("IsAttacking", true);
         }
-        //RotateTowardsTarget();
-        
-        if(!isRotate)
+
+        UpdateTarget();
+        if (!isRotate)
         {
             FaceTheTarget();
             RotateGunTowardsTarget();
@@ -185,7 +185,7 @@ public class Turrets : MonoBehaviour
         {
             RotateTowardsTarget();
         }
-        UpdateTarget();
+        
         if (fireCountDown <= 0)
         {
             Shoot();
@@ -230,7 +230,8 @@ public class Turrets : MonoBehaviour
     void RotateTowardsTarget()
     {
         Vector3 direction = target.position - transform.position;
-        float angle = Mathf.Clamp(Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg, minRotation, maxRotation);      
+        //float angle = Mathf.Clamp(Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg, minRotation, maxRotation);
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(angle, Vector3.forward), Time.deltaTime * turretTurnSpeed);
     }
 
@@ -281,9 +282,9 @@ public class Turrets : MonoBehaviour
         }
     }
 
-    public void SetClamp(float min, float max)
-    {
-        minRotation = min;
-        maxRotation = max;
-    }
+    //public void SetClamp(float min, float max)
+    //{
+    //    minRotation = min;
+    //    maxRotation = max;
+    //}
 }

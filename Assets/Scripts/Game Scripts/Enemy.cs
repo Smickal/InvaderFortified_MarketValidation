@@ -98,6 +98,7 @@ public class Enemy : MonoBehaviour
         if (Vector3.Distance(transform.position, target) <= 0.5f)
         {
             waveSpawner.getCurrentEnemiesInScreen--;
+            extraMainTowerAttributes.ReduceMainTowerHp(enemyDamage);
             Destroy(gameObject);
         }
     }
@@ -165,9 +166,8 @@ public class Enemy : MonoBehaviour
         enemyHealth -= damage;
         if (enemyHealth <= 0)
         {
+            waveSpawner.ReduceCurrentEnemy();
             Destroy(gameObject);
-
-            waveSpawner.getCurrentEnemiesInScreen--;
             return;
         }
     }
@@ -197,4 +197,6 @@ public class Enemy : MonoBehaviour
         }
 
     }
+
+
 }

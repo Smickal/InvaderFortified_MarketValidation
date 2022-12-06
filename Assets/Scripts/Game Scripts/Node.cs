@@ -20,9 +20,9 @@ public class Node : MonoBehaviour
     [Header("Upgrade Buttons")]
     [SerializeField] Button damageIncreaseButton;
     [SerializeField] Button rangeIncreaseButton;
-    [SerializeField] Button recoverHealthButton;
-    [SerializeField] Button increaseMaxFactoryUpgradeButton;
-    [SerializeField] Button cancelButton;
+    //[SerializeField] Button recoverHealthButton;
+    //[SerializeField] Button increaseMaxFactoryUpgradeButton;
+    //[SerializeField] Button cancelButton;
     [SerializeField] Button deleteFactoryButton;
 
 
@@ -50,7 +50,7 @@ public class Node : MonoBehaviour
             rangeIncreaseButton.onClick.AddListener(UpgradeRange);
            // recoverHealthButton.onClick.AddListener(HealCurrentFactory);
             //increaseMaxFactoryUpgradeButton.onClick.AddListener(UpgradeMaxHP);
-            cancelButton.onClick.AddListener(parentNodes.DisableAllPreviews);
+            //cancelButton.onClick.AddListener(parentNodes.DisableAllPreviews);
         }
         deleteFactoryButton.onClick.AddListener(DeleteCurrentFactory);
     }
@@ -205,7 +205,6 @@ public class Node : MonoBehaviour
         if (turret == null || !isCurrentNodeSelected) return;
         if (turret.tag == "CurrencyFactory") return;
         spawnMinions = turret.GetComponentInChildren<SpawnMinions>();
-        upgradePanel.UpdateHP(spawnMinions.factoryHP, spawnMinions.maxFactoryHP);
     }
 
     void RefreshUpdatePanel()
@@ -216,9 +215,9 @@ public class Node : MonoBehaviour
             
             spawnMinions = turret.GetComponentInChildren<SpawnMinions>();
             UpgradeAttributes upgradeAttributes = spawnMinions.GetComponent<UpgradeAttributes>();
-            upgradePanel.SetTowerAttributes(spawnMinions.turretName, spawnMinions.factoryHP, spawnMinions.maxFactoryHP,
+            upgradePanel.SetTowerAttributes(spawnMinions.turretName,
                     spawnMinions.turretDamage, spawnMinions.turretRange,
-                    spawnMinions.fireRate, spawnMinions.delayBetweenSpawns);
+                    spawnMinions.fireRate);
 
             upgradePanel.SetUpgradeAttributes(upgradeAttributes.damageUpgrade, upgradeAttributes.rangeUpgrade);
         }
@@ -326,8 +325,8 @@ public class Node : MonoBehaviour
         if (checkRange) rangeIncreaseButton.enabled = true;
         else rangeIncreaseButton.enabled = false;
 
-        if (checkMaxHP) increaseMaxFactoryUpgradeButton.enabled = true;
-        else increaseMaxFactoryUpgradeButton.enabled = false;
+        //if (checkMaxHP) increaseMaxFactoryUpgradeButton.enabled = true;
+        //else increaseMaxFactoryUpgradeButton.enabled = false;
     }
 
    void DeleteCurrentFactory()

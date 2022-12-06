@@ -14,7 +14,9 @@ public class Bullet : MonoBehaviour
     float bulletDamage;
 
     Vector2 getStartingPos;
-    
+
+    [SerializeField] GameObject explosionVFX;
+
 
     public void Seek(Transform _target)
     {
@@ -70,6 +72,8 @@ public class Bullet : MonoBehaviour
                 {
                     enem.GetComponent<Enemy>().TakeDamage(bulletDamage);
                 }
+                GameObject obj = Instantiate(explosionVFX, enemy.transform.localPosition, Quaternion.identity);
+                Destroy(obj, 2f);
             }
             Destroy(gameObject);
         }

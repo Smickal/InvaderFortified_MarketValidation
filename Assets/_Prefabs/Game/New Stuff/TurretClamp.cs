@@ -20,7 +20,7 @@ public class TurretClamp : MonoBehaviour
             minClamp = -maxClamp;
             maxClamp = temp;
         }
-        turret.SetClamp(minClamp, maxClamp);
+        //turret.SetClamp(minClamp, maxClamp);
         idx++;
     }
 

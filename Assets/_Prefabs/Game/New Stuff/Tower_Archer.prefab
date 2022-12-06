@@ -185,7 +185,7 @@ MonoBehaviour:
   maxFactoryHP: 100
   factoryCost: 100
   maxMinion: 1
-  turretName: Archer
+  turretName: Wizard
   turretHP: 10
   turretRange: 5
   turretTurnSpeed: 10

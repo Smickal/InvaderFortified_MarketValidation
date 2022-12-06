@@ -60,9 +60,9 @@ TagManager:
   - name: Bulets
     uniqueID: 2951732773
     locked: 0
-  - name: Factories
-    uniqueID: 2501600945
-    locked: 0
   - name: DragAndDrops
     uniqueID: 1071565579
+    locked: 0
+  - name: Factories
+    uniqueID: 2501600945
     locked: 0

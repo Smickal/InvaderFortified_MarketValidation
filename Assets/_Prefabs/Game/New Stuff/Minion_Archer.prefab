@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1793366351
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4c1bd6a55465b1444af150c5b5046ff3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -141,17 +141,15 @@ MonoBehaviour:
   meleeRange: 2
   turretTurnSpeed: 10
   fireRate: 1
-  minRotation: -180
-  maxRotation: 0
   turretDamage: 50
-  bulletSpeed: 50
+  bulletSpeed: 25
   enemyTag: Enemy
   bulletPrefab: {fileID: 6203266413992622537, guid: 837bbae5c2beef14491d315b58bde393, type: 3}
   gunBarrel: {fileID: 6043898954234830810}
   col: {fileID: 0}
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!95 &1158704260949437951
 Animator:
   serializedVersion: 4
@@ -275,7 +273,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1793366351
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8b0ed4bdf55f8ac4aa7449a2b5c4fdd9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
